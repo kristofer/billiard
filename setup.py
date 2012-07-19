@@ -119,8 +119,9 @@ else:
 
 is_jython = sys.platform.startswith("java")
 is_pypy = hasattr(sys, "pypy_version_info")
+is_py_only = True
 extensions = []
-if not (is_jython or is_pypy or is_py3k):
+if not (is_jython or is_pypy or is_py3k or is_py_only):
     extensions = [
         Extension('_billiard',
                 sources=multiprocessing_srcs,
